@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lista de Pokémons</title>
+</head>
+<body>
+    <h1>Lista de Pokémons</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Habilidades</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for pokemon in pokemons %}
+            <tr>
+                <td>{{ pokemon.name }}</td>
+                <td>{{ pokemon.abilities }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
