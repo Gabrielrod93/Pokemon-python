@@ -1,4 +1,5 @@
 #banco_de_dados.py
+
 import sqlite3
 
 def criar_tabela():
@@ -31,3 +32,21 @@ def inserir_pokemon(nome, id, habilidade_escolhida, movimentos_escolhidos):
     conn.close()
 
 
+def excluir_pokemon(id):
+    conn = sqlite3.connect('pokemon.db')
+    cursor = conn.cursor()
+
+    cursor.execute(f'DELETE FROM pokemon WHERE id={id}')
+    conn.commit()
+    print(f'Pokemon com id {id} foi excluído com sucesso.')
+    conn.close()
+
+def limpar_banco_de_dados():
+    conn = sqlite3.connect('pokemon.db')
+    cursor = conn.cursor()
+
+    cursor.execute("DELETE FROM pokemon")
+
+    conn.commit()
+    print("Banco de dados foi limpo com sucesso.")
+    conn.close()
