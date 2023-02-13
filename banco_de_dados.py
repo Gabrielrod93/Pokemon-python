@@ -1,5 +1,6 @@
 #banco_de_dados.py
 
+from prettytable import PrettyTable
 import sqlite3
 
 def criar_tabela():
@@ -49,4 +50,19 @@ def limpar_banco_de_dados():
 
     conn.commit()
     print("Banco de dados foi limpo com sucesso.")
+    conn.close()
+
+
+def mostrar_time():
+    conn = sqlite3.connect('pokemon.db')
+    cursor = conn.cursor()
+
+    cursor.execute("SELECT * FROM pokemon")
+    resultados = cursor.fetchall()
+
+    tabela = PrettyTable(["Nome", "ID", "Habilidade", "Movimentos"])
+    for resultado in resultados:
+        tabela.add_row(resultado)
+
+    print(tabela)
     conn.close()
