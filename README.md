@@ -28,8 +28,11 @@ Encerrar o programa
 Estrutura de arquivos
 Este projeto é composto pelos seguintes arquivos:
 
-main.py: O arquivo principal que contém o código da interface interativa.
-banco_de_dados.py: Este arquivo contém todas as funções relacionadas ao banco de dados, como criar tabelas, inserir, excluir e exibir informações do time.
-fazendo_pokemon.py: Este arquivo contém todas as funções relacionadas a escolha de um Pokémon, incluindo a escolha de habilidades e movimentos.
-Contribuições
-Este é um projeto Open Source e todas as contribuições são bem-vindas. Se você encontrar algum bug ou desejar adicionar uma nova funcionalidade, sinta-se à vontade para abrir uma pull request.
+README
+
+Este é um projeto de interface interativa que permite ao usuário escolher um time de Pokémon e suas habilidades e movimentos. O projeto contém os seguintes arquivos:
+
+main.py: o arquivo principal que contém o código da interface interativa.
+banco_de_dados.py: este arquivo contém todas as funções relacionadas ao banco de dados, como criar tabelas, inserir, excluir e exibir informações do time.
+fazendo_pokemon.py: este arquivo contém todas as funções relacionadas à escolha de um Pokémon, incluindo a escolha de habilidades e movimentos.
+Contribuições são bem-vindas neste projeto Open Source. Se você encontrar algum bug ou desejar adicionar uma nova funcionalidade, sinta-se à vontade para abrir uma pull request.
