@@ -32,7 +32,7 @@ while True:
 
     elif opção == 2:
         mostrar_time()
-        id = input('Qual Pokémon você gostaria de excluir?')
+        id = input('Qual Pokémon você gostaria de excluir? (Digite "0" para cancelar) ')
         excluir_pokemon(id)
 
     elif opção == 3:

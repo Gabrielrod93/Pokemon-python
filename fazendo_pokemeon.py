@@ -43,6 +43,7 @@ def escolhendo_movimentos():
                     print("Desculpe, a opção escolhida não é válida.")
 
 
+
 def escolhendo_habilidade():
     global habilidade_escolhida
     habilidades = buscar_habilidades(id)

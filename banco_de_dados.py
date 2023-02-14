@@ -1,5 +1,4 @@
 #banco_de_dados.py
-
 from prettytable import PrettyTable
 import sqlite3
 
@@ -36,11 +35,29 @@ def inserir_pokemon(nome, id, habilidade_escolhida, movimentos_escolhidos):
 def excluir_pokemon(id):
     conn = sqlite3.connect('pokemon.db')
     cursor = conn.cursor()
-
-    cursor.execute(f'DELETE FROM pokemon WHERE id={id}')
-    conn.commit()
-    print(f'Pokemon com id {id} foi excluído com sucesso.')
+    
+    if id == "0":
+        print("Nenhum Pokémon será excluído.")
+        return
+    
+    cursor.execute(f"SELECT COUNT(*) FROM pokemon WHERE id={id}")
+    if cursor.fetchone()[0] == 0:
+        print(f"Não há nenhum Pokémon com o ID {id}.")
+        print("Por favor, digite um ID válido.")
+        conn.close()
+        return
+    
+    try:
+        cursor.execute(f'DELETE FROM pokemon WHERE id={id}')
+        conn.commit()
+        print(f'Pokemon com id {id} foi excluído com sucesso.')
+    except sqlite3.Error as error:
+        print(f"Ocorreu um erro ao excluir o Pokémon com id {id}: {error}")
+        print("Por favor, tente novamente mais tarde.")
+    
     conn.close()
+
+
 
 def limpar_banco_de_dados():
     conn = sqlite3.connect('pokemon.db')
