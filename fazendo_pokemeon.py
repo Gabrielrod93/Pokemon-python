@@ -24,21 +24,23 @@ def escolhendo_movimentos():
     movimentos_escolhidos = []
     num_movimentos = min(len(movimentos), 4)
     for i in range(num_movimentos):
-        escolhida = input(f'Escolha o {i + 1}º movimento acima ou digite o nome do movimento: ')
-        try:
-            escolhida = int(escolhida) - 1
-            if escolhida < 0 or escolhida >= len(movimentos) or movimentos[escolhida] in movimentos_escolhidos:
+        while True:
+            escolhida = input(f'Escolha o {i + 1}º movimento acima ou digite o nome do movimento: ')
+            try:
+                escolhida = int(escolhida) - 1
                 if escolhida < 0 or escolhida >= len(movimentos):
                     print("Desculpe, a opção escolhida não é válida.")
                 elif movimentos[escolhida] in movimentos_escolhidos:
                     print("Desculpe, você já escolheu esse movimento.")
-                continue
-            movimentos_escolhidos.append(movimentos[escolhida])
-        except ValueError:
-            if escolhida in movimentos and escolhida not in movimentos_escolhidos:
-                movimentos_escolhidos.append(escolhida)
-            else:
-                print("Desculpe, a opção escolhida não é válida.")
+                else:
+                    movimentos_escolhidos.append(movimentos[escolhida])
+                    break
+            except ValueError:
+                if escolhida in movimentos and escolhida not in movimentos_escolhidos:
+                    movimentos_escolhidos.append(escolhida)
+                    break
+                else:
+                    print("Desculpe, a opção escolhida não é válida.")
 
 
 def escolhendo_habilidade():
